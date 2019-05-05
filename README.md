@@ -11,4 +11,11 @@ Downloads: [![Download-Statisic](https://img.shields.io/badge/dynamic/json.svg?c
 
 Orig. Shields.io ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/OllisGit/OctoPrint-CICD_Playground/latest/total.svg)
 
-test version 1.0.6
+
+## Setup
+
+Install via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wiki/Plugin:-Plugin-Manager)
+or manually using this URL:
+
+    https://github.com/OllisGit/OctoPrint-CICD_Playground/releases/latest/download/master.zip
+
