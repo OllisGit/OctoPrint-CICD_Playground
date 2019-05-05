@@ -9,9 +9,10 @@ script:
 
 deploy:
   name: "preparation release"
+  prerelease: true
   provider: releases
   api_key: "${GITHUB_TOKEN}"
   file: "master.zip"
   overwrite: true
   skip_cleanup: true
-  draft: true
+  #draft: true
