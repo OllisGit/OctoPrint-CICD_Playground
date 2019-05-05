@@ -12,7 +12,7 @@ script:
 deploy:
   provider: releases
   api_key: "${GITHUB_TOKEN}"
-  file: "latest-plugin-zip"
+  file: "latest-plugin.zip"
   overwrite: true
   skip_cleanup: true
   draft: true
