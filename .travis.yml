@@ -4,6 +4,7 @@
 
 script:
 # debug  - echo 'Hello World'
+  - git tag prerel
   - zip -r master *
 # debug  - ls -al
 
