@@ -1,13 +1,11 @@
-
-
-
-#before_script:
-#  GITHUB
+##
+## Simple script to build a zip file of the whole repository
+##
 
 script:
-  - echo 'Hello World'
+# debug  - echo 'Hello World'
   - zip -r master *
-  - ls -al
+# debug  - ls -al
 
 deploy:
   provider: releases
