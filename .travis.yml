@@ -14,10 +14,10 @@ script:
 ## https://github.com/oliexdev/openScale/pull/121/files
 
 before_deploy:
-  git tag -f travis-dev-build  
-  git remote add gh https://${TRAVIS_REPO_SLUG%/*}:${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
-  git push -f gh travis-dev-build
-  git remote remove gh
+  - git tag -f travis-dev-build  
+  - git remote add gh https://${TRAVIS_REPO_SLUG%/*}:${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
+  - git push -f gh travis-dev-build
+  - git remote remove gh
 
 deploy:
   name: "preparation release"
