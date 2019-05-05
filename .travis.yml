@@ -7,10 +7,12 @@
 script:
   - echo 'Hello World'
   - zip -r latest-plugin *
+  - ls -al
 
-#deploy:
-#  provider: releases
-#  api_key: "GITHUB OAUTH TOKEN"
-#  file: "FILE TO UPLOAD"
-#  skip_cleanup: true
-#  draft: true
+deploy:
+  provider: releases
+  api_key: "${GITHUB_TOKEN}"
+  file: "latest-plugin-zip"
+  overwrite: true
+  skip_cleanup: true
+  draft: true
