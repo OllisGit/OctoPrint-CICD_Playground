@@ -8,6 +8,7 @@ script:
 # debug  - ls -al
 
 deploy:
+  name: "preparation release"
   provider: releases
   api_key: "${GITHUB_TOKEN}"
   file: "master.zip"
