@@ -1,0 +1,15 @@
+
+
+
+#before_script:
+#  GITHUB
+
+script:
+  - echo 'Hello World'
+
+#deploy:
+#  provider: releases
+#  api_key: "GITHUB OAUTH TOKEN"
+#  file: "FILE TO UPLOAD"
+#  skip_cleanup: true
+#  draft: true

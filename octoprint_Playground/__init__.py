@@ -57,11 +57,12 @@ class PlaygroundPlugin(octoprint.plugin.SettingsPlugin,
                 # version check: github repository
                 type="github_release",
                 user="OllisGit",
-                repo="OctoPrint-Playground",
+                repo="OctoPrint-CICD_Playground",
                 current=self._plugin_version,
 
                 # update method: pip
-                pip="https://github.com/OllisGit/OctoPrint-CICD_Playground/archive/{target_version}.zip"
+                #pip="https://github.com/OllisGit/OctoPrint-CICD_Playground/archive/{target_version}.zip"
+                pip="https://github.com/OllisGit/OctoPrint-CICD_Playground/archive/{target_version}.zipp"
             )
         )
 
