@@ -1,16 +1,24 @@
 # OctoPrint-CICD_Playground
 ## Playground for CI/CD tests
+### How to use it:
 
-Buildstatus: [![Build Status](https://travis-ci.org/OllisGit/OctoPrint-CICD_Playground.svg?branch=master)](https://travis-ci.org/OllisGit/OctoPrint-CICD_Playground)
+- Copy .travis.yml to your Octoprint root folder
+- Go to your Github-Project and activate the travis-webhook (Settings/Webhooks)
+    
+    Payload URL: https://notify.travis-ci.org
 
-Current Version: [![Version](https://img.shields.io/badge/dynamic/json.svg?color=brightgreen&label=version&url=https://api.github.com/repos/OllisGit/OctoPrint-CICD_Playground/releases&query=$[0].name)]()
+    Content type: application/x-wwww.form-urlencoded
+    
+    Individual events: Just the push event
 
-Released: [![Released](https://img.shields.io/badge/dynamic/json.svg?color=brightgreen&label=released&url=https://api.github.com/repos/OllisGit/OctoPrint-CICD_Playground/releases&query=$[0].published_at)]()
+- Go to Travis-Page / Settings and select your Repository ......
 
-Downloads: [![Download-Statisic](https://img.shields.io/badge/dynamic/json.svg?color=brightgreen&label=downloads&query=%24%5B0%5D.assets%5B0%5D.download_count&url=https%3A%2F%2Fapi.github.com%2Frepos%2FOllisGit%2FOctoPrint-CICD_Playground%2Freleases)]()
+# OctoPrint-Playground Plugin
+[![Version](https://img.shields.io/badge/dynamic/json.svg?color=brightgreen&label=version&url=https://api.github.com/repos/OllisGit/OctoPrint-CICD_Playground/releases&query=$[0].name)]()
+[![Released](https://img.shields.io/badge/dynamic/json.svg?color=brightgreen&label=released&url=https://api.github.com/repos/OllisGit/OctoPrint-CICD_Playground/releases&query=$[0].published_at)]()
+[![Download-Statisic](https://img.shields.io/badge/dynamic/json.svg?color=brightgreen&label=downloads&query=%24%5B0%5D.assets%5B0%5D.download_count&url=https%3A%2F%2Fapi.github.com%2Frepos%2FOllisGit%2FOctoPrint-CICD_Playground%2Freleases)]()
 
 Orig. Shields.io ![GitHub Releases (by Release)](https://img.shields.io/github/downloads/OllisGit/OctoPrint-CICD_Playground/latest/total.svg)
-
 
 ## Setup
 
