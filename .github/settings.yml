@@ -39,8 +39,8 @@ repository:
 
 # Labels: define labels for Issues and Pull Requests
 labels:
-  - name: my-bug
-    color: CC0000
+  - name: type: bug
+    color: d73a4a
   - name: my-feature
     color: 336699
   - name: first-timers-only
