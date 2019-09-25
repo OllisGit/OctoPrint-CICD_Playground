@@ -39,7 +39,7 @@ repository:
 
 # Labels: define labels for Issues and Pull Requests
 labels:
-  - name: type: bug
+  - name: "type: bug"
     color: d73a4a
   - name: my-feature
     color: 336699
