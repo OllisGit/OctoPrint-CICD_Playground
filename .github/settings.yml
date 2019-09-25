@@ -48,7 +48,6 @@ labels:
   - name: "type: question"
     description: "Further information is requested"
     color: d876e3
-  
   - name: "status: inProgress"
     description: "I am working on it"
     color: 5319e7
