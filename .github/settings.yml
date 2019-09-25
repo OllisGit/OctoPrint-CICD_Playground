@@ -42,11 +42,23 @@ labels:
   - name: "type: bug"
     description: "Something isn't working"
     color: d73a4a
-  - name: my-feature
-    color: 336699
-  - name: first-timers-only
-    # include the old name to rename and existing label
-    oldname: Help Wanted
+  - name: "type: enhancement"
+    description: "Something isn't working"
+    color: a2eeef
+  - name: "type: question"
+    description: "Further information is requested"
+    color: d876e3
+  
+  - name: "status: inProgress"
+    description: "I am working on it"
+    color: 5319e7
+  - name: "status: waitingForFeedback"
+    description: "Wating for Customers feedback"
+    color: bfdadc
+  - name: "status: wontfix"
+    description: "I don't wont to fix this"
+    color: fbca04
+
 
 # Collaborators: give specific users access to this repository.
 #collaborators:
