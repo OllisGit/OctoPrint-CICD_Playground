@@ -4,6 +4,7 @@
 
 script:
 # debug  - echo 'Hello World'
+  - export MYVERSION=V0815
   - zip -r master *
 # debug  - ls -al
 
@@ -17,7 +18,7 @@ before_deploy:
   - git remote remove gh
 
 deploy:
-  name: "V1.X.X-draft"
+  name: $MYVERSION
   #prerelease: true
   draft: true
   provider: releases
