@@ -18,7 +18,7 @@ before_deploy:
   - git remote remove gh
 
 deploy:
-  name: $PLUGIN_VERSION
+  name: "V${PLUGIN_VERSION}-draft"
   #prerelease: true
   draft: true
   provider: releases
