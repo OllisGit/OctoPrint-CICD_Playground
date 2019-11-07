@@ -4,7 +4,7 @@
 
 script:
 # debug  - echo 'Hello World'
-  - export MYVERSION=V0815
+  - export PLUGIN_VERSION=$(cat setup.py | grep 'plugin_version = "*"' | cut -d '"' -f2) 
   - zip -r master *
 # debug  - ls -al
 
@@ -18,7 +18,7 @@ before_deploy:
   - git remote remove gh
 
 deploy:
-  name: $MYVERSION
+  name: $PLUGIN_VERSION
   #prerelease: true
   draft: true
   provider: releases
