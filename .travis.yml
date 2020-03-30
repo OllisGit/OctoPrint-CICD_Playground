@@ -1,7 +1,8 @@
-language: ruby
+language: ruby, python
 rvm:
-- 2.3.3
-
+  - 2.3.3
+python:
+   - 2.7
 ##
 ## Simple script to build a zip file of the whole repository
 ##
@@ -9,6 +10,7 @@ rvm:
 script:
 # debug  - echo 'Hello World'
   - ruby --version
+  - python --version
   - export PLUGIN_VERSION=$(cat setup.py | grep 'plugin_version = "*"' | cut -d '"' -f2) 
   - zip -r master *
 # debug  - ls -al
