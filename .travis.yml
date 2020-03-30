@@ -8,7 +8,7 @@ rvm:
 
 script:
 # debug  - echo 'Hello World'
-  - ruby -version
+  - ruby --version
   - export PLUGIN_VERSION=$(cat setup.py | grep 'plugin_version = "*"' | cut -d '"' -f2) 
   - zip -r master *
 # debug  - ls -al
