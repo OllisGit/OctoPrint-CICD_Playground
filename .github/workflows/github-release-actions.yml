@@ -62,7 +62,7 @@ jobs:
           draft: true
           prerelease: false
           release_name: V${{ steps.version.outputs.version }}-draft
-          tag_name: ${{ steps.version.outputs.version }}
+          tag_name: ${{ steps.version.outputs.version }}-draft
           body_path: RELEASE_TEMPLATE.md
 
       - name: upload master.zip to release
