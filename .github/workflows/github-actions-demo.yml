@@ -41,7 +41,7 @@ jobs:
 
       - run: echo "* Read current plugin version..."
       - run: export PLUGIN_VERSION=$(cat setup.py | grep 'plugin_version = "*"' | cut -d '"' -f2)
-      - run: echo "  Plugin Version ${{ PLUGIN_VERSION }} $PLUGIN_VERSION ${PLUGIN_VERSION}"
+      - run: echo "  Plugin Version  $PLUGIN_VERSION ${PLUGIN_VERSION}"
 
       - run: echo "* Build ZIP"
       - run: zip -r master.zip * -i '\octoprint_*' 'translations' 'README.md' 'requirements.txt' 'setup.py'
