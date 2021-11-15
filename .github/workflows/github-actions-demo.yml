@@ -1,17 +1,52 @@
-name: GitHub Actions Demo
+###
+### Simple script to build a zip file of the whole repository
+###
+#
+#script:
+## debug  - echo 'Hello World'
+#  - export PLUGIN_VERSION=$(cat setup.py | grep 'plugin_version = "*"' | cut -d '"' -f2)
+#  - zip -r master.zip * -i '\octoprint_*' 'translations' 'README.md' 'requirements.txt' 'setup.py'
+## debug  - ls -al
+#
+### see "Fix travis automatic build and deploy"
+### https://github.com/oliexdev/openScale/pull/121
+### https://github.com/oliexdev/openScale/pull/121/files
+#before_deploy:
+#  - git tag -f travis-build
+#  - git remote add gh https://${TRAVIS_REPO_SLUG%/*}:${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
+#  - git push -f gh travis-build
+#  - git remote remove gh
+#
+#deploy:
+#  name: "V${PLUGIN_VERSION}-draft"
+#  #prerelease: true
+#  draft: true
+#  provider: releases
+#  api_key: "${GITHUB_TOKEN}"
+#  file: "master.zip"
+#  overwrite: true
+#  skip_cleanup: true
+#  target_commitish: $TRAVIS_COMMIT
+
+
+
+name: Build Plugin Release - Action
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Build-Release-ZIP-Action:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v2
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+
+      - run: echo "* Read current plugin version..."
+      - run: export PLUGIN_VERSION=$(cat setup.py | grep 'plugin_version = "*"' | cut -d '"' -f2)
+      - run: echo "  Plugin Version ${{ PLUGIN_VERSION }} $PLUGIN_VERSION ${PLUGIN_VERSION}"
+
+      - run: echo "* Build ZIP"
+      - run: zip -r master.zip * -i '\octoprint_*' 'translations' 'README.md' 'requirements.txt' 'setup.py'
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+
       - run: echo "🍏 This job's status is ${{ job.status }}."
