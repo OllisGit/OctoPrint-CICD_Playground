@@ -39,11 +39,11 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      - run: echo "* Read current plugin version..."
+      - run: echo "Read current plugin version..."
       - run: export PLUGIN_VERSION=$(cat setup.py | grep 'plugin_version = "*"' | cut -d '"' -f2)
-      - run: echo "  Plugin Version  $PLUGIN_VERSION ${PLUGIN_VERSION}"
+      - run: echo "Plugin Version  $PLUGIN_VERSION ${PLUGIN_VERSION}"
 
-      - run: echo "* Build ZIP"
+      - run: echo "Build ZIP"
       - run: zip -r master.zip * -i '\octoprint_*' 'translations' 'README.md' 'requirements.txt' 'setup.py'
       - name: List files in the repository
         run: |
@@ -60,12 +60,12 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           draft: true
-          prerelease: true
+          prerelease: false
           release_name: V${{ steps.version.outputs.version }}-draft
-          tag_name: ${{ github.ref }}
-          body_path: CHANGELOG.md
+#          tag_name: ${{ github.ref }}
+          body_path: RELEASE_TEMPLATE.md
 
-      - name: upload linux artifact
+      - name: upload master.zip to release
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ github.token }}
