@@ -86,7 +86,7 @@ $(function() {
      * and a full list of the available options.
      */
     OCTOPRINT_VIEWMODELS.push({
-        construct: DryrunViewModel,
+        construct: PlaygroundViewModel,
         // ViewModels your plugin depends on, e.g. loginStateViewModel, settingsViewModel, ...
         dependencies: ["loginStateViewModel", "settingsViewModel"],
         // Elements to bind to, e.g. #settings_plugin_DryRun, #tab_plugin_DryRun, ...
