@@ -61,19 +61,22 @@ class PlaygroundPlugin(octoprint.plugin.SettingsPlugin,
                 current=self._plugin_version,
 
                 stable_branch=dict(
-                    name="Stable", branch="master", comittish=["master"]
+                    name="Only Release",
+                    branch="master",
+                    comittish=["master"]
                 ),
                 prerelease_branches=[
                     dict(
-                        name="Release Candidate",
+                        name="Release & Candidate",
                         branch="pre-release",
                         comittish=["pre-release", "master"],
                     )
                 ],
 
                 # update method: pip
-                pip="https://github.com/OllisGit/OctoPrint-CICD_Playground/archive/{target_version}.zip"
-                #pip="https://github.com/OllisGit/OctoPrint-CICD_Playground/releases/latest/download/master.zip"
+                #pip="https://github.com/OllisGit/OctoPrint-CICD_Playground/archive/{target_version}.zip"
+                pip="https://github.com/OllisGit/OctoPrint-CICD_Playground/releases/latest/download/master.zip"
+                #pip="https://github.com/OllisGit/OctoPrint-CICD_Playground/releases/download/1.0.11/master.zip"
             )
         )
 
