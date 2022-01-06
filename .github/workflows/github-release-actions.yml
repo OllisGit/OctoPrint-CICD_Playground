@@ -75,7 +75,7 @@ jobs:
           body_path: RELEASE_TEMPLATE.md
           draft: true
           prerelease: false
-          target_commitish: blabla
+          target_commitish: pre-release
           name: V${{ steps.version.outputs.version }}-draft
           tag_name: ${{ steps.version.outputs.version }}-draft
 ####
