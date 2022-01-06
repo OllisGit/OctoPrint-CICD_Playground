@@ -77,6 +77,11 @@ class PlaygroundPlugin(octoprint.plugin.SettingsPlugin,
                         name="Release & Candidate",
                         branch="pre-release",
                         comittish=["pre-release", "master"],
+                    ),
+                    dict(
+                        name="Release & Candidate & under development",
+                        branch="development",
+                        comittish=["development", "pre-release", "master"],
                     )
                 ],
 
