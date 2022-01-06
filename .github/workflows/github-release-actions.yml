@@ -53,32 +53,32 @@ jobs:
         run: echo "::set-output name=version::$(cat setup.py | grep 'plugin_version = "*"' | cut -d '"' -f2)"
         id: version
 
-#      - name: release
-#        uses: actions/create-release@latest
-#        id: create_release
-#        env:
-#          GITHUB_TOKEN: ${{ github.token }}
-#        with:
-#          draft: true
-#          commitish: blabla
-#          prerelease: false
-#          release_name: V${{ steps.version.outputs.version }}-draft
-#          tag_name: ${{ steps.version.outputs.version }}-draft
-#          body_path: RELEASE_TEMPLATE.md
+      - name: release
+        uses: actions/create-release@latest
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          draft: true
+          commitish: pre-release
+          prerelease: false
+          release_name: V${{ steps.version.outputs.version }}-draft
+          tag_name: ${{ steps.version.outputs.version }}-draft
+          body_path: RELEASE_TEMPLATE.md
 
 ## NEW Approach with a different GitHubAction
-      - name: release
-        uses: softprops/action-gh-release@v1
-        id: create_release
-        with:
-          token: ${{ github.token }}
-          body_path: RELEASE_TEMPLATE.md
-          draft: true
-          prerelease: false
-          target_commitish: devel
-          name: V${{ steps.version.outputs.version }}-draft
-          tag_name: ${{ steps.version.outputs.version }}-draft
-#####
+#      - name: release
+#        uses: softprops/action-gh-release@v1
+#        id: create_release
+#        with:
+#          token: ${{ github.token }}
+#          body_path: RELEASE_TEMPLATE.md
+#          draft: true
+#          prerelease: false
+#          target_commitish: pre-release
+#          name: V${{ steps.version.outputs.version }}-draft
+#          tag_name: ${{ steps.version.outputs.version }}-draft
+####
 
       - name: upload master.zip to release
         uses: actions/upload-release-asset@v1
