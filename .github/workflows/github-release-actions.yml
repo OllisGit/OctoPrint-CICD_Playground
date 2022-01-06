@@ -53,12 +53,15 @@ jobs:
         run: echo "::set-output name=version::$(cat setup.py | grep 'plugin_version = "*"' | cut -d '"' -f2)"
         id: version
 
-      - name: Branch name
+      - name: Repository and Branch name
         id: branch
         run: |
                export branch_name=${GITHUB_REF##*/}
                echo "::set-output name=branch_name::$branch_name"
                echo running on branch $branch_name
+               export repo_name=${GITHUB_REPOSITORY#*/}
+               echo "::set-output name=repo_name::$repo_name"
+
 
       - name: release
         uses: actions/create-release@latest
@@ -72,8 +75,14 @@ jobs:
           release_name: V${{ steps.version.outputs.version }}-draft
           tag_name: ${{ steps.version.outputs.version }}-draft
           body: |
-            # Hallo
-            Welt ${{ steps.version.outputs.version }}
+            ## [BugFix]
+            - #xxx
+
+            ## [Enhancement]
+            - #xxx
+
+            ## Counter
+            ![downloaded](https://img.shields.io/github/downloads/OllisGit/${{ steps.branch.outputs.repo_name }}/${{ steps.version.outputs.version }}/total)
 #          body_path: RELEASE_TEMPLATE.md
 
 
