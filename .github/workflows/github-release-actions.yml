@@ -75,6 +75,7 @@ jobs:
           body_path: RELEASE_TEMPLATE.md
           draft: true
           prerelease: false
+          target_commitish: ${GITHUB_REF##*/}
           name: V${{ steps.version.outputs.version }}-draft
           tag_name: ${{ steps.version.outputs.version }}-draft
 ####
