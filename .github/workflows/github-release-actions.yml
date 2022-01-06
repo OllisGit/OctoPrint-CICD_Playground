@@ -68,7 +68,7 @@ jobs:
 
 ## NEW Approach with a different GitHubAction
       - name: release
-        uses: softprops/action-gh-release@latest
+        uses: softprops/action-gh-release@v1
         id: create_release
         with:
           token: ${{ github.token }}
