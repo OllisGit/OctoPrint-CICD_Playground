@@ -35,6 +35,12 @@ class PlaygroundPlugin(octoprint.plugin.SettingsPlugin,
         if command == "checkboxState":
             self.PlaygroundEnabled = bool(data["checkboxValue"])
 
+    ##~~ SettingsPlugin mixin
+    def get_settings_defaults(self):
+        return dict(
+            installed_version=self._plugin_version
+        )
+
     ##~~ AssetPlugin mixin
     def get_assets(self):
         # Define your plugin's asset files to automatically include in the
@@ -56,6 +62,7 @@ class PlaygroundPlugin(octoprint.plugin.SettingsPlugin,
 
                 # version check: github repository
                 type="github_release",
+
                 user="OllisGit",
                 repo="OctoPrint-CICD_Playground",
                 current=self._plugin_version,
@@ -75,8 +82,9 @@ class PlaygroundPlugin(octoprint.plugin.SettingsPlugin,
 
                 # update method: pip
                 #pip="https://github.com/OllisGit/OctoPrint-CICD_Playground/archive/{target_version}.zip"
-                pip="https://github.com/OllisGit/OctoPrint-CICD_Playground/releases/latest/download/master.zip"
+                # pip="https://github.com/OllisGit/OctoPrint-CICD_Playground/releases/latest/download/master.zip"
                 #pip="https://github.com/OllisGit/OctoPrint-CICD_Playground/releases/download/1.0.11/master.zip"
+                pip="https://github.com/OllisGit/OctoPrint-CICD_Playground/releases/download/{target_version}/master.zip"
             )
         )
 
