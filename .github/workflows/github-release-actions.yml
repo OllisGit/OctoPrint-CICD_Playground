@@ -71,7 +71,11 @@ jobs:
           prerelease: false
           release_name: V${{ steps.version.outputs.version }}-draft
           tag_name: ${{ steps.version.outputs.version }}-draft
-          body_path: RELEASE_TEMPLATE.md
+          body: |
+            # Hallo
+            Welt ${{ steps.version.outputs.version }}
+#          body_path: RELEASE_TEMPLATE.md
+
 
 ## NEW Approach with a different GitHubAction
 #      - name: release
