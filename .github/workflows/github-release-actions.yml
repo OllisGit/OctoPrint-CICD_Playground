@@ -60,7 +60,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           draft: true
-          commitish: ${{GITHUB_REF##*/}}-blabla
+          commitish: ${GITHUB_REF##*/}-blabla
           prerelease: false
           release_name: V${{ steps.version.outputs.version }}-draft
           tag_name: ${{ steps.version.outputs.version }}-draft
