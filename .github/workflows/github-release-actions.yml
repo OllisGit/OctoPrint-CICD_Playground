@@ -54,13 +54,13 @@ jobs:
         id: version
 
       - name: release
-        uses: actions/create-release@v1.1.4
+        uses: actions/create-release@latest
         id: create_release
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           draft: true
-          commitish: com-blabla
+          commitish: blabla
           prerelease: false
           release_name: V${{ steps.version.outputs.version }}-draft
           tag_name: ${{ steps.version.outputs.version }}-draft
