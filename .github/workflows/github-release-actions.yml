@@ -53,13 +53,12 @@ jobs:
         run: echo "::set-output name=version::$(cat setup.py | grep 'plugin_version = "*"' | cut -d '"' -f2)"
         id: version
 
-
-      - run: |
-               export branch_name=${GITHUB_REF##*/}
-               echo "::set-env name=branch_name::$branch_name"
-
       - name: Branch name
-        run: echo running on branch $branch_name
+        id: branch
+        run: |
+               export branch_name=${GITHUB_REF##*/}
+               echo "::set-output name=branch_name::$branch_name"
+               echo running on branch $branch_name
 
       - name: release
         uses: actions/create-release@latest
@@ -68,7 +67,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           draft: true
-          commitish: $branch_name
+          commitish: ${{ steps.branch.outputs.branch_name }}
           prerelease: false
           release_name: V${{ steps.version.outputs.version }}-draft
           tag_name: ${{ steps.version.outputs.version }}-draft
