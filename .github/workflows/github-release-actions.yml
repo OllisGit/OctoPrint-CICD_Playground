@@ -85,8 +85,7 @@ jobs:
             ![downloaded](https://img.shields.io/github/downloads/OllisGit/${{ steps.branch.outputs.repo_name }}/${{ steps.version.outputs.version }}/total)
 #          body_path: RELEASE_TEMPLATE.md
 
-
-## NEW Approach with a different GitHubAction
+ # NEW Approach with a different GitHubAction
 #      - name: release
 #        uses: softprops/action-gh-release@v1
 #        id: create_release
@@ -109,5 +108,8 @@ jobs:
           asset_path: master.zip
           asset_name: master.zip
           asset_content_type: application/gzip
+
+     - name: download master.zip
+       run: curl -O -J -L -v https://github.com/OllisGit/${{ steps.branch.outputs.repo_name }}/releases/download/${{ steps.version.outputs.version }}/master.zip
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
