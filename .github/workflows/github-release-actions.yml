@@ -85,21 +85,6 @@ jobs:
             ![downloaded](https://img.shields.io/github/downloads/OllisGit/${{ steps.branch.outputs.repo_name }}/${{ steps.version.outputs.version }}/total)
 #          body_path: RELEASE_TEMPLATE.md
 
-
-## NEW Approach with a different GitHubAction
-#      - name: release
-#        uses: softprops/action-gh-release@v1
-#        id: create_release
-#        with:
-#          token: ${{ github.token }}
-#          body_path: RELEASE_TEMPLATE.md
-#          draft: true
-#          prerelease: false
-#          target_commitish: pre-release
-#          name: V${{ steps.version.outputs.version }}-draft
-#          tag_name: ${{ steps.version.outputs.version }}-draft
-####
-
       - name: upload master.zip to release
         uses: actions/upload-release-asset@v1
         env:
@@ -109,5 +94,8 @@ jobs:
           asset_path: master.zip
           asset_name: master.zip
           asset_content_type: application/gzip
+
+      - name: download master.zip
+        run: curl -O -J -L -v https://github.com/OllisGit/${{ steps.branch.outputs.repo_name }}/releases/download/${{ steps.version.outputs.version }}/master.zip
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
